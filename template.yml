@@ -1,4 +1,4 @@
-Transform: AWS::Serverless-2016-10-31
+.Transform: AWS::Serverless-2016-10-31
 Resources:
   # Role for API Gateway
   S3Role:
@@ -69,7 +69,6 @@ Resources:
                         $ref: "#/components/schemas/Empty"
               x-amazon-apigateway-integration:
                 httpMethod: POST
-                type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${OutputFetcher.Arn}/invocations
                 responses:
                   default:
